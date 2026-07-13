@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>이종윤 | 예비 개발자 페이스메이커</title>
+    <title>JONGYOON | 예비 개발자 포트폴리오</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Noto Serif KR (Heading), Inter/Pretendard (Body) -->
+    <!-- Google Fonts: Noto Serif KR (Heading), Plus Jakarta Sans (Body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -23,7 +23,7 @@
         .font-serif-kr {
             font-family: 'Noto Serif KR', serif;
         }
-        /* Custom color definitions to align with Step 6 */
+        /* Custom color definitions to align with Brand Guideline */
         .color-navy { color: #0B192C; }
         .bg-navy { background-color: #0B192C; }
         .color-gold { color: #D4AF37; }
@@ -64,16 +64,16 @@
         }
     </script>
 </head>
-<body class="selection:bg-gold-500 selection:text-white">
-
+<body class="selection:bg-gold-500 selection:text-white antialiased">
+ 
     <!-- Navigation Header -->
     <nav class="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md border-b border-slate-200 z-40 transition-all duration-300">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <!-- Logo / Title -->
                 <div class="flex items-center">
-                    <a href="#" class="text-navy-900 font-serif-kr font-bold text-lg tracking-wider">
-                        JONGYOON <span class="text-gold-500 font-sans text-sm font-semibold">.DEV</span>
+                    <a href="#" class="text-navy-900 font-serif-kr font-bold text-lg tracking-wider whitespace-nowrap">
+                        JONGYOON <span class="text-gold-500 font-sans text-sm font-semibold inline-block">.DEV</span>
                     </a>
                 </div>
                 <!-- Menu (Desktop) -->
@@ -84,28 +84,19 @@
                     <a href="#interactive" class="text-navy-900 hover:text-gold-500 transition-colors">시뮬레이션</a>
                     <a href="#outro" class="text-navy-900 hover:text-gold-500 transition-colors">궁금한 점</a>
                 </div>
-                <!-- Open Strategy Blueprint Button -->
-                <div>
-                    <button onclick="toggleModal('blueprint-modal')" class="bg-navy-900 text-white text-xs px-4 py-2 rounded-full font-medium hover:bg-gold-500 transition-all shadow-sm">
-                        <i class="fa-solid fa-map-location-dot mr-1.5"></i>브랜드 설계도
-                    </button>
-                </div>
             </div>
         </div>
     </nav>
-
+ 
     <!-- Hero Section -->
     <section id="hero" class="relative min-h-screen pt-24 pb-16 flex items-center justify-center overflow-hidden bg-gradient-to-b from-white to-[#F3F4F6]">
-        <!-- Background decorative vectors -->
-        <div class="absolute inset-0 z-0 opacity-40">
+        <!-- Background decorative circle (Top Right Only) -->
+        <div class="absolute inset-0 z-0 opacity-40 pointer-events-none">
             <svg class="absolute right-0 top-1/4 w-96 h-96 text-gold-500/10" fill="currentColor" viewBox="0 0 100 100">
                 <circle cx="50" cy="50" r="40" />
             </svg>
-            <svg class="absolute left-10 bottom-10 w-64 h-64 text-navy-900/5" fill="currentColor" viewBox="0 0 100 100">
-                <rect x="20" y="20" width="60" height="60" rx="10" />
-            </svg>
         </div>
-
+ 
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 animate-fade-in">
             <!-- Profile Subtitle Badge -->
             <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-navy-900/5 text-navy-900 mb-6">
@@ -121,24 +112,24 @@
                     <span class="absolute bottom-1 left-0 w-full h-3 bg-gold-500/20 z-0"></span>
                 </span>
             </h1>
-
+ 
             <!-- Welcome Text -->
             <p class="text-base sm:text-lg text-slateCustom max-w-2xl mx-auto leading-relaxed mb-8">
                 안녕하세요! 사람을 돕는 기술을 고민하는 <strong class="text-navy-900 font-semibold">이종윤</strong>입니다.<br class="hidden sm:inline">
                 신학에서 출발해 사용자의 행동을 헤아리는 데이터를 만나고,<br class="hidden sm:inline">
                 이제는 여러분과 함께 SSAFY에서 가장 튼튼한 CS 뼈대를 채워가려 합니다.
             </p>
-
+ 
             <!-- Action buttons -->
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a href="#story" class="w-full sm:w-auto bg-navy-900 text-white px-8 py-3.5 rounded-xl font-medium hover:bg-gold-600 transition-all shadow-md flex items-center justify-center gap-2">
-                    이종윤 성장 스토리 읽기 <i class="fa-solid fa-arrow-down text-sm"></i>
+                    저의 성장 스토리 읽기 <i class="fa-solid fa-arrow-down text-sm"></i>
                 </a>
                 <a href="#outro" class="w-full sm:w-auto bg-white border border-slate-300 text-navy-900 px-8 py-3.5 rounded-xl font-medium hover:bg-slate-50 transition-all flex items-center justify-center gap-2">
                     <i class="fa-regular fa-comment-dots"></i> 궁금한 점 물어보기
                 </a>
             </div>
-
+ 
             <!-- Scroll Indicator -->
             <div class="mt-16 animate-bounce">
                 <a href="#story" class="text-slate-400 hover:text-navy-900 text-sm">
@@ -148,7 +139,7 @@
             </div>
         </div>
     </section>
-
+ 
     <!-- My Story (인생 로드맵) -->
     <section id="story" class="py-20 bg-white">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -158,7 +149,7 @@
                     신학을 깊이 공부하며 깨우친 인문학적 가치관이 데이터를 만난 세 번의 마일스톤입니다.
                 </p>
             </div>
-
+ 
             <div class="relative border-l-2 border-slate-200 ml-4 md:ml-32">
                 <!-- Milestone 1 -->
                 <div class="mb-12 relative pl-6">
@@ -177,7 +168,7 @@
                         </p>
                     </div>
                 </div>
-
+ 
                 <!-- Milestone 2 -->
                 <div class="mb-12 relative pl-6">
                     <div class="absolute -left-3 top-1 bg-white border-2 border-navy-900 rounded-full w-6 h-6 flex items-center justify-center z-10">
@@ -194,7 +185,7 @@
                         </p>
                     </div>
                 </div>
-
+ 
                 <!-- Milestone 3 -->
                 <div class="relative pl-6">
                     <div class="absolute -left-3 top-1 bg-white border-2 border-navy-900 rounded-full w-6 h-6 flex items-center justify-center z-10">
@@ -214,7 +205,7 @@
             </div>
         </div>
     </section>
-
+ 
     <!-- My Evolution (내가 벽을 마주하며 성장해 온 방식) -->
     <section id="evolution" class="py-20 bg-slate-50">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -242,7 +233,7 @@
                     </button>
                 </div>
             </div>
-
+ 
             <!-- Evolution Contents Frame -->
             <div class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-100 shadow-xl transition-all">
                 
@@ -272,7 +263,7 @@
                         </div>
                     </div>
                 </div>
-
+ 
                 <!-- Step 2 Content -->
                 <div id="tab-step2" class="evo-content hidden">
                     <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
@@ -294,12 +285,12 @@
                             <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3"><i class="fa-solid fa-triangle-exclamation text-amber-500 mr-1"></i> 마주한 벽과 해결법</h4>
                             <p class="text-sm text-navy-900 font-semibold mb-2">"지표 너머, 실제 원인은 어떻게 예측할 것인가?"</p>
                             <p class="text-xs text-slateCustom leading-relaxed">
-                                흘러간 과거 지표 정리만으로는 다가올 이탈 고객의 행동을 원천 방어할 수 없었습니다. 더 깊은 예측을 위해 머신러닝 이론으로 깊숙이 파고들었습니다.
+                                흘러간 과거 지표 정리만으로는 다가올 이탈 고객의 행동을 원천 방어할 수 없었습니다. 더 예측 지향적인 방향으로 전개하기 위해 머신러닝 이론으로 깊숙이 파고들었습니다.
                             </p>
                         </div>
                     </div>
                 </div>
-
+ 
                 <!-- Step 3 Content -->
                 <div id="tab-step3" class="evo-content hidden">
                     <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
@@ -326,7 +317,7 @@
                         </div>
                     </div>
                 </div>
-
+ 
                 <!-- Step 4 Content -->
                 <div id="tab-step4" class="evo-content hidden">
                     <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
@@ -353,7 +344,7 @@
                         </div>
                     </div>
                 </div>
-
+ 
                 <!-- Step 5 Content -->
                 <div id="tab-step5" class="evo-content hidden">
                     <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
@@ -380,22 +371,22 @@
                         </div>
                     </div>
                 </div>
-
+ 
             </div>
         </div>
     </section>
-
+ 
     <!-- Interactive Fun Section (미니 데이터 시뮬레이션) -->
     <section id="interactive" class="py-20 bg-white">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <span class="text-xs font-bold text-gold-600 tracking-wider uppercase">INTERACTIVE ZONE</span>
+                <span class="text-xs font-bold text-gold-600 tracking-wider uppercase">INTERACTIVE PLAYGROUND</span>
                 <h2 class="text-3xl font-bold font-serif-kr text-navy-900 mb-4">프로젝트 실시간 시뮬레이션</h2>
                 <p class="text-slateCustom max-w-xl mx-auto text-sm sm:text-base">
                     제가 고민했던 두 가지의 실제 머신러닝/비즈니스 분석 데이터를 여러분이 직접 조작해보세요!
                 </p>
             </div>
-
+ 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 
                 <!-- Card 1: Churn Predictor Simulator -->
@@ -409,7 +400,7 @@
                             <p class="text-xs text-slateCustom">CatBoost 임계값(0.55) 기반 피처 가중치 테스트</p>
                         </div>
                     </div>
-
+ 
                     <!-- Simulator Inputs -->
                     <div class="space-y-4 text-sm mb-6">
                         <div>
@@ -420,7 +411,7 @@
                             <input type="range" min="10" max="150" value="45" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-navy-900" id="slide-trans-ct" oninput="calculateChurn()">
                             <p class="text-[10px] text-slate-400">낮을수록 이탈 위험이 매우 큽니다. (핵심 Feature)</p>
                         </div>
-
+ 
                         <div>
                             <div class="flex justify-between font-medium mb-1 text-slateCustom">
                                 <span>지난 12개월간 비활성 월수 (Months_Inactive)</span>
@@ -429,7 +420,7 @@
                             <input type="range" min="0" max="6" value="3" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-navy-900" id="slide-inactive" oninput="calculateChurn()">
                             <p class="text-[10px] text-slate-400">높을수록 이탈 위험이 가중됩니다.</p>
                         </div>
-
+ 
                         <div>
                             <div class="flex justify-between font-medium mb-1 text-slateCustom">
                                 <span>평균 한도 소진율 (Avg_Utilization_Ratio)</span>
@@ -439,7 +430,7 @@
                             <p class="text-[10px] text-slate-400">한도를 적게 소진하는 고객일수록 플랫폼 이탈에 무감각합니다.</p>
                         </div>
                     </div>
-
+ 
                     <!-- Prediction Output Area -->
                     <div class="bg-white p-5 rounded-2xl border border-slate-200/60 text-center relative z-10">
                         <p class="text-xs font-semibold text-slate-400 mb-1">예측 모델 종합 분석 위험도</p>
@@ -449,7 +440,7 @@
                         </p>
                     </div>
                 </div>
-
+ 
                 <!-- Card 2: Iowa Liquor Strategy Selector -->
                 <div class="bg-[#faf9f6] p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between">
                     <div>
@@ -458,17 +449,17 @@
                                 <i class="fa-solid fa-chart-pie"></i>
                             </span>
                             <div>
-                                <h3 class="text-lg font-bold text-navy-900">아이오와 주류 도매 창업 분석기</h3>
+                                <h3 class="text-lg font-bold text-navy-900">아이오와 주류 도매 창업 추천 분석기</h3>
                                 <p class="text-xs text-slateCustom">안정형(Mount Vernon) vs 공격형(Des Moines)의 데이터 비교</p>
                             </div>
                         </div>
-
+ 
                         <p class="text-sm text-slateCustom leading-relaxed mb-6">
                             저의 주류 판매 데이터(Parquet, SQL) 분석에서 도출된 핵심인 두 추천 지역의 실제 비즈니스 지표입니다. 전략을 선택하고 동적 그래프를 비교해보세요.
                         </p>
-
+ 
                         <!-- Strategy selector tabs -->
-                        <div class="grid grid-cols-2 gap-3 mb-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
                             <button onclick="selectIowaStrategy('mv')" class="py-2.5 px-4 rounded-xl text-xs font-bold transition-all text-center border bg-gold-500 text-white border-gold-600" id="btn-strat-mv">
                                 <i class="fa-solid fa-shield-halved mr-1"></i> 안정형 (MOUNT VERNON)
                             </button>
@@ -477,7 +468,7 @@
                             </button>
                         </div>
                     </div>
-
+ 
                     <!-- Dynamic SVG Mini Chart -->
                     <div class="bg-white p-5 rounded-2xl border border-slate-200/60">
                         <div class="flex justify-between items-center mb-4">
@@ -496,7 +487,7 @@
                                     <div class="bg-navy-900 h-full transition-all duration-500" style="width: 100%" id="iowa-sales-bar"></div>
                                 </div>
                             </div>
-
+ 
                             <div>
                                 <div class="flex justify-between text-xs mb-1">
                                     <span class="text-slateCustom">상위 20위권 스토어 비율</span>
@@ -507,17 +498,17 @@
                                 </div>
                             </div>
                         </div>
-
+ 
                         <p class="text-xs text-slateCustom leading-relaxed mt-4 pt-4 border-t border-slate-100" id="iowa-desc">
                             전체 점포 수는 단 3개뿐이지만, 상위 20위권 스토어가 33%에 달하며 단일 매장당 평균 수익이 압도적으로 높습니다. 초기 주류 종류는 1,240가지로 타협하여 소자본 고효율을 노리는 최적의 전략적 안정 요충지입니다.
                         </p>
                     </div>
                 </div>
-
+ 
             </div>
         </div>
     </section>
-
+ 
     <!-- Outro / Contact (가상 방명록 & 궁금한 점 공유) -->
     <section id="outro" class="py-20 bg-slate-50 relative">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -534,7 +525,7 @@
                         "함께 고민하고 소통하며 서로의 좋은 러닝메이트가 되어, 더 높고 견고하게 함께 성장하고 싶습니다."<br class="hidden sm:inline">
                         언제든 자리에 찾아오시거나, 파이썬/데이터 분석 혹은 개발 공부 중에 궁금한 점이나 같이 공유하고 싶은 고민이 있다면 편하게 이야기를 나눠봐요.
                     </p>
-
+ 
                     <!-- Contact Details row -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-8">
                         <div class="bg-white/5 p-4 rounded-xl border border-white/10 flex items-center gap-3">
@@ -561,14 +552,14 @@
                     </div>
                 </div>
             </div>
-
+ 
             <!-- Virtual Sticky Note Guestbook -->
             <div class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm">
                 <div class="text-center sm:text-left mb-8">
                     <h3 class="text-xl font-bold font-serif-kr text-navy-900 mb-2">반 친구들의 따뜻한 한 줄 메모장</h3>
                     <p class="text-xs text-slateCustom">저에게 응원의 메시지나 함께하고 싶은 스터디 제안, 궁금한 점을 포스트잇으로 붙여보세요!</p>
                 </div>
-
+ 
                 <!-- Input form -->
                 <form id="comment-form" onsubmit="addComment(event)" class="grid grid-cols-1 sm:grid-cols-12 gap-4 mb-8">
                     <div class="sm:col-span-3">
@@ -583,7 +574,7 @@
                         </button>
                     </div>
                 </form>
-
+ 
                 <!-- Board holding Post-it notes -->
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4" id="notes-board">
                     <!-- Dynamic Notes injected by JS -->
@@ -591,7 +582,7 @@
             </div>
         </div>
     </section>
-
+ 
     <!-- Footer -->
     <footer class="bg-navy-900 text-white/60 py-12 border-t border-white/5">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-xs">
@@ -604,93 +595,12 @@
             <p>© 2026 이종윤. All rights reserved. Created for SSAFY peers & prospective study partners.</p>
         </div>
     </footer>
-
-    <!-- Brand Strategy Blueprint Modal (image_82d83b.png Content Modal) -->
-    <div id="blueprint-modal" class="fixed inset-0 z-50 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-            <!-- Background Overlay -->
-            <div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity" onclick="toggleModal('blueprint-modal')"></div>
-
-            <!-- Trick element to center modal -->
-            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-
-            <!-- Modal Content -->
-            <div class="relative inline-block align-middle bg-white rounded-3xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:align-middle sm:max-w-3xl sm:w-full border border-slate-100">
-                <div class="bg-navy-900 text-white px-6 py-4 flex items-center justify-between">
-                    <h3 class="text-sm font-bold font-serif-kr tracking-wider flex items-center gap-2">
-                        <i class="fa-solid fa-map-location-dot text-gold-500"></i> 이종윤 포트폴리오 브랜드 기획 설계도
-                    </h3>
-                    <button onclick="toggleModal('blueprint-modal')" class="text-white/80 hover:text-white text-lg">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
-                </div>
-                
-                <div class="p-6 overflow-x-auto">
-                    <!-- Strategy Content Table mapping the image_82d83b.png -->
-                    <table class="min-w-full divide-y divide-slate-200 text-xs">
-                        <thead>
-                            <tr class="bg-slate-50 text-slateCustom text-left font-semibold">
-                                <th class="px-4 py-3 rounded-l-lg">번호</th>
-                                <th class="px-4 py-3">항목</th>
-                                <th class="px-4 py-3 rounded-r-lg">최종 기획 내용</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-slate-100 text-slateCustom">
-                            <tr>
-                                <td class="px-4 py-4 font-bold text-navy-900">1</td>
-                                <td class="px-4 py-4 font-bold text-navy-900">캐치프레이즈</td>
-                                <td class="px-4 py-4 font-serif-kr text-navy-900 font-semibold bg-gold-500/5">"본질을 채워 무한히 확장하는, 멈추지 않는 예비 개발자"</td>
-                            </tr>
-                            <tr>
-                                <td class="px-4 py-4 font-bold text-navy-900">2</td>
-                                <td class="px-4 py-4 font-bold text-navy-900">매력 포인트 (3개)</td>
-                                <td class="px-4 py-4 space-y-2">
-                                    <p><strong>1. 사람을 향하는 따뜻한 시선</strong> (신학/봉사활동 배경)</p>
-                                    <p><strong>2. 원리를 파고드는 집념</strong> (답답함을 성장의 동력으로 삼는 태도)</p>
-                                    <p><strong>3. 거침없는 E2E 확장</strong> (분석에서 파이프라인/배포까지 전 과정 섭렵)</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="px-4 py-4 font-bold text-navy-900">3</td>
-                                <td class="px-4 py-4 font-bold text-navy-900">타겟 방문자</td>
-                                <td class="px-4 py-4 font-bold text-navy-900">SSAFY 동료들 (반 친구들, 스터디원, 예비 프로젝트 팀원들)</td>
-                            </tr>
-                            <tr>
-                                <td class="px-4 py-4 font-bold text-navy-900">4</td>
-                                <td class="px-4 py-4 font-bold text-navy-900">스토리텔링 흐름</td>
-                                <td class="px-4 py-4">[Hero] 환영 인사 ➔ [My Story] 인생 로드맵 ➔ [My Evolution] 단계적 성장 극복기 ➔ [Outro] 러닝메이트 제안 및 연락처</td>
-                            </tr>
-                            <tr>
-                                <td class="px-4 py-4 font-bold text-navy-900">5</td>
-                                <td class="px-4 py-4 font-bold text-navy-900">무드/톤 (형용사 3개)</td>
-                                <td class="px-4 py-4"><strong>차분한, 신뢰감 있는, 정교한</strong> (금융IT 도메인 타겟)</td>
-                            </tr>
-                            <tr>
-                                <td class="px-4 py-4 font-bold text-navy-900">6</td>
-                                <td class="px-4 py-4 font-bold text-navy-900">메인 컬러 + 폰트</td>
-                                <td class="px-4 py-4 space-y-1">
-                                    <p><strong>컬러:</strong> 딥 네이비 + 슬레이트 그레이 + 소프트 골드/민트</p>
-                                    <p><strong>헤딩:</strong> Noto Serif KR (인문학적 깊이) / <strong>본문:</strong> Pretendard (현대적 가독성)</p>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-                <div class="bg-slate-50 px-6 py-4 flex justify-end rounded-b-3xl">
-                    <button onclick="toggleModal('blueprint-modal')" class="bg-navy-900 text-white text-xs px-5 py-2 rounded-xl font-medium hover:bg-gold-500 transition-all">
-                        설계도 닫기
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
+ 
     <!-- Toast Notification Element -->
     <div id="toast" class="fixed bottom-5 right-5 z-50 bg-navy-900 text-white px-5 py-3 rounded-2xl shadow-xl border border-white/10 text-xs hidden flex items-center gap-2">
         <i class="fa-solid fa-circle-check text-gold-500 text-sm"></i> <span id="toast-msg">복사되었습니다!</span>
     </div>
-
+ 
     <!-- Custom Logic and Interactions Script -->
     <script>
         // Tab switching logic for My Evolution Roadmap
@@ -701,7 +611,7 @@
             });
             // Show target section
             document.getElementById(tabId).classList.remove('hidden');
-
+ 
             // Reset tab button states
             document.querySelectorAll('.evo-tab-btn').forEach(btn => {
                 btn.classList.remove('bg-navy-900', 'text-white');
@@ -712,28 +622,18 @@
             activeBtn.classList.remove('bg-white', 'text-slateCustom', 'border-slate-200');
             activeBtn.classList.add('bg-navy-900', 'text-white');
         }
-
-        // Modal toggle utility
-        function toggleModal(modalId) {
-            const modal = document.getElementById(modalId);
-            if (modal.classList.contains('hidden')) {
-                modal.classList.remove('hidden');
-            } else {
-                modal.classList.add('hidden');
-            }
-        }
-
+ 
         // Churn Predictor simulation calculation
         function calculateChurn() {
             const transCt = parseFloat(document.getElementById('slide-trans-ct').value);
             const inactive = parseFloat(document.getElementById('slide-inactive').value);
             const utilization = parseFloat(document.getElementById('slide-util').value);
-
+ 
             // Set current values label text
             document.getElementById('val-trans-ct').innerText = transCt;
             document.getElementById('val-inactive').innerText = inactive;
             document.getElementById('val-util').innerText = utilization.toFixed(2);
-
+ 
             // Simplified linear mock equation matching Lee's Optuna/CatBoost weight importance
             // Basic factors: low trans count increases churn, high inactive increases churn, low util increases churn
             let riskBase = 50;
@@ -742,20 +642,20 @@
             if (transCt < 40) riskBase += 35;
             else if (transCt < 70) riskBase += 15;
             else if (transCt > 100) riskBase -= 25;
-
+ 
             // Inactive penalty
             riskBase += (inactive * 8) - 12;
-
+ 
             // Utilization penalty
             riskBase += (0.5 - utilization) * 20;
-
+ 
             // Constrain between 1% and 99%
             const finalRisk = Math.max(1.2, Math.min(98.8, riskBase)).toFixed(1);
-
+ 
             // Update UI elements based on prediction calculation
             const resultText = document.getElementById('churn-result-text');
             const resultDesc = document.getElementById('churn-result-desc');
-
+ 
             if (finalRisk > 70) {
                 resultText.className = "text-3xl font-bold font-serif-kr text-red-500 mb-2";
                 resultText.innerText = `고위험군 (${finalRisk}%)`;
@@ -770,7 +670,7 @@
                 resultDesc.innerText = "활성도가 극도로 건강합니다. 정규 결제 수단을 안정적으로 활용 중이며, 추가 카드 혜택 설명회 등의 프리미엄 혜택 업그레이드 마케팅이 적절합니다.";
             }
         }
-
+ 
         // Iowa Liquor business strategy selection
         function selectIowaStrategy(type) {
             const btnMv = document.getElementById('btn-strat-mv');
@@ -781,7 +681,7 @@
             const salesBar = document.getElementById('iowa-sales-bar');
             const ratioBar = document.getElementById('iowa-ratio-bar');
             const iowaDesc = document.getElementById('iowa-desc');
-
+ 
             if (type === 'mv') {
                 btnMv.className = "py-2.5 px-4 rounded-xl text-xs font-bold transition-all text-center border bg-gold-500 text-white border-gold-600";
                 btnDm.className = "py-2.5 px-4 rounded-xl text-xs font-bold transition-all text-center border bg-white text-slateCustom border-slate-200 hover:border-slate-300";
@@ -804,7 +704,7 @@
                 iowaDesc.innerText = "총 점포 수는 92개로 주 전체 최고 총액을 차지하지만 점포당 평균 매출 비율은 적은 편입니다. 또한, 주류 가짓수도 3,606개로 폭넓게 다뤄야 하므로 공격적으로 1등 매장을 경쟁하고 장악해나가고자 하는 플랫폼 전술에 어울립니다.";
             }
         }
-
+ 
         // Simple Toast indicator helper
         function showToast(message) {
             const toast = document.getElementById('toast');
@@ -815,7 +715,7 @@
                 toast.classList.add('hidden');
             }, 3000);
         }
-
+ 
         // Clipboard Copy fallback wrapper (as requested in specifications)
         function copyText(text) {
             const dummy = document.createElement("textarea");
@@ -826,29 +726,29 @@
             document.body.removeChild(dummy);
             showToast(`"${text}"가 클립보드에 복사되었습니다.`);
         }
-
+ 
         // Virtual Sticky Note Guestbook dynamic state storage
         let comments = [
             { id: 1, author: "김민재 (수요일 스터디)", text: "저번 팀 프로젝트 때 파이프라인 수립 막막했는데 설명 듣고 바로 감잡았습니다! 든든하네요..", color: "#FEF08A" }, // Yellow note
             { id: 2, author: "이지혜 (SSAFY 2반)", text: "신학에서 데이터까지 오신 서사가 진짜 감동적이네요. 다음 관통 프로젝트 때 같이해요!", color: "#BFDBFE" }, // Blue note
             { id: 3, author: "정우진", text: "알고리즘 스터디 언제 열어주시나요? 페이스메이커로 같이 공부해요 화이팅!", color: "#BBF7D0" }  // Green note
         ];
-
+ 
         // Load local storage comments if present
         if (localStorage.getItem('jongyun_guestbook')) {
             comments = JSON.parse(localStorage.getItem('jongyun_guestbook'));
         }
-
+ 
         const noteColors = ["#FEF08A", "#BFDBFE", "#BBF7D0", "#FBCFE8", "#FED7AA"];
-
+ 
         function renderNotes() {
             const board = document.getElementById('notes-board');
             board.innerHTML = '';
             
             comments.forEach(note => {
                 const card = document.createElement('div');
-                // Card designs representing physical sticky post-it
-                card.className = "p-5 rounded-2xl relative shadow-md transition-all hover:rotate-1 hover:scale-105 duration-200 text-slate-800 flex flex-col justify-between aspect-square select-none";
+                // Card designs representing physical sticky post-it with fluid height on mobile
+                card.className = "p-5 rounded-2xl relative shadow-md transition-all hover:rotate-1 hover:scale-105 duration-200 text-slate-800 flex flex-col justify-between min-h-[165px] md:aspect-square select-none";
                 card.style.backgroundColor = note.color || "#FEF08A";
                 
                 card.innerHTML = `
@@ -864,12 +764,12 @@
                 board.appendChild(card);
             });
         }
-
+ 
         function addComment(e) {
             e.preventDefault();
             const authorInput = document.getElementById('comment-author');
             const textInput = document.getElementById('comment-text');
-
+ 
             const randomColor = noteColors[Math.floor(Math.random() * noteColors.length)];
             const newComment = {
                 id: Date.now(),
@@ -877,24 +777,24 @@
                 text: textInput.value,
                 color: randomColor
             };
-
+ 
             comments.push(newComment);
             localStorage.setItem('jongyun_guestbook', JSON.stringify(comments));
             renderNotes();
-
+ 
             // Reset inputs
             authorInput.value = '';
             textInput.value = '';
             showToast("메모가 칠판에 성공적으로 붙여졌습니다!");
         }
-
+ 
         function deleteComment(id) {
             comments = comments.filter(c => c.id !== id);
             localStorage.setItem('jongyun_guestbook', JSON.stringify(comments));
             renderNotes();
             showToast("메모가 삭제되었습니다.");
         }
-
+ 
         // Initialize state on page load
         window.onload = function() {
             renderNotes();
