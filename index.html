@@ -42,9 +42,16 @@
         }
         
         /* Custom Hover Cards */
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            will-change: transform;
+        }
         .card-hover:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px -10px rgba(11, 25, 44, 0.15);
+            transform: translateY(-6px) rotate(-0.4deg);
+            box-shadow: 0 16px 28px -12px rgba(11, 25, 44, 0.18);
+        }
+        .dark .card-hover:hover {
+            box-shadow: 0 16px 28px -12px rgba(0, 0, 0, 0.5);
         }
         /* Fade in animations */
         @keyframes fadeIn {
@@ -89,7 +96,7 @@
                     </a>
                 </div>
                 <!-- Menu / Utilities (Desktop) -->
-                <div class="flex items-center space-x-6">
+                <div class="flex items-center space-x-3 sm:space-x-6">
                     <div class="hidden md:flex space-x-8 text-sm font-medium">
                         <a href="#hero" class="text-navy-900 dark:text-slate-200 hover:text-gold-500 dark:hover:text-gold-500 transition-colors">홈</a>
                         <a href="#story" class="text-navy-900 dark:text-slate-200 hover:text-gold-500 dark:hover:text-gold-500 transition-colors">인생 로드맵</a>
@@ -102,6 +109,22 @@
                     <button onclick="toggleTheme()" id="theme-btn" class="p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-navy-900 dark:text-gold-500 transition-all shadow-sm focus:outline-none" aria-label="테마 전환">
                         <i id="theme-icon" class="fa-solid fa-moon text-base"></i>
                     </button>
+
+                    <!-- Mobile Hamburger Menu Button -->
+                    <button onclick="toggleMobileMenu()" id="mobile-menu-btn" class="md:hidden p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-navy-900 dark:text-gold-500 transition-all shadow-sm focus:outline-none" aria-label="메뉴 열기">
+                        <i id="mobile-menu-icon" class="fa-solid fa-bars text-base"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Dropdown Menu Panel -->
+            <div id="mobile-menu-panel" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-1 pt-2 border-t border-slate-200 dark:border-slate-800 text-sm font-medium">
+                    <a href="#hero" onclick="closeMobileMenu()" class="text-navy-900 dark:text-slate-200 hover:text-gold-500 dark:hover:text-gold-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors px-3 py-2.5 rounded-lg">홈</a>
+                    <a href="#story" onclick="closeMobileMenu()" class="text-navy-900 dark:text-slate-200 hover:text-gold-500 dark:hover:text-gold-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors px-3 py-2.5 rounded-lg">인생 로드맵</a>
+                    <a href="#evolution" onclick="closeMobileMenu()" class="text-navy-900 dark:text-slate-200 hover:text-gold-500 dark:hover:text-gold-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors px-3 py-2.5 rounded-lg">성장 히스토리</a>
+                    <a href="#interactive" onclick="closeMobileMenu()" class="text-navy-900 dark:text-slate-200 hover:text-gold-500 dark:hover:text-gold-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors px-3 py-2.5 rounded-lg">시뮬레이션</a>
+                    <a href="#outro" onclick="closeMobileMenu()" class="text-navy-900 dark:text-slate-200 hover:text-gold-500 dark:hover:text-gold-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors px-3 py-2.5 rounded-lg">궁금한 점</a>
                 </div>
             </div>
         </div>
@@ -179,7 +202,7 @@
                     <div class="hidden md:block absolute -left-36 top-1 text-right w-28 text-xs font-semibold text-slate-400">
                         인문학적 고민
                     </div>
-                    <div class="bg-[#faf9f6] dark:bg-slate-950 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 hover:border-gold-500/30 dark:hover:border-gold-500/30 transition-all shadow-sm">
+                    <div class="card-hover bg-[#faf9f6] dark:bg-slate-950 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 hover:border-gold-500/30 dark:hover:border-gold-500/30 transition-all shadow-sm">
                         <span class="text-xs font-bold text-gold-600 dark:text-gold-500 tracking-wider uppercase">Turning Point 01</span>
                         <h3 class="text-lg font-bold text-navy-900 dark:text-white mt-1 mb-2 font-serif-kr">길 잃은 신학도, 봉사활동에서 길을 찾다</h3>
                         <p class="text-sm text-slateCustom dark:text-slate-300 leading-relaxed">
@@ -196,7 +219,7 @@
                     <div class="hidden md:block absolute -left-36 top-1 text-right w-28 text-xs font-semibold text-slate-400">
                         데이터와의 조우
                     </div>
-                    <div class="bg-[#faf9f6] dark:bg-slate-950 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 hover:border-gold-500/30 dark:hover:border-gold-500/30 transition-all shadow-sm">
+                    <div class="card-hover bg-[#faf9f6] dark:bg-slate-950 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 hover:border-gold-500/30 dark:hover:border-gold-500/30 transition-all shadow-sm">
                         <span class="text-xs font-bold text-gold-600 dark:text-gold-500 tracking-wider uppercase">Turning Point 02</span>
                         <h3 class="text-lg font-bold text-navy-900 dark:text-white mt-1 mb-2 font-serif-kr">"데이터는 사람의 행동을 설명하는 언어다"</h3>
                         <p class="text-sm text-slateCustom dark:text-slate-300 leading-relaxed">
@@ -213,7 +236,7 @@
                     <div class="hidden md:block absolute -left-36 top-1 text-right w-28 text-xs font-semibold text-slate-400">
                         원리의 정면 돌파
                     </div>
-                    <div class="bg-[#faf9f6] dark:bg-slate-950 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 hover:border-gold-500/30 dark:hover:border-gold-500/30 transition-all shadow-sm">
+                    <div class="card-hover bg-[#faf9f6] dark:bg-slate-950 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 hover:border-gold-500/30 dark:hover:border-gold-500/30 transition-all shadow-sm">
                         <span class="text-xs font-bold text-gold-600 dark:text-gold-500 tracking-wider uppercase">Turning Point 03</span>
                         <h3 class="text-lg font-bold text-navy-900 dark:text-white mt-1 mb-2 font-serif-kr">한계를 딛고, 원리를 파고드는 엔지니어로</h3>
                         <p class="text-sm text-slateCustom dark:text-slate-300 leading-relaxed">
@@ -273,7 +296,7 @@
                                 <span class="bg-slate-100 dark:bg-slate-800 text-slateCustom dark:text-slate-300 text-xs px-2.5 py-1 rounded-md font-medium">사용자 행동 파악</span>
                             </div>
                         </div>
-                        <div class="md:col-span-5 bg-slate-50 dark:bg-slate-950 p-6 rounded-2xl border border-slate-200 dark:border-slate-800">
+                        <div class="card-hover md:col-span-5 bg-slate-50 dark:bg-slate-950 p-6 rounded-2xl border border-slate-200 dark:border-slate-800">
                             <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-3"><i class="fa-solid fa-triangle-exclamation text-amber-500 mr-1"></i> 마주한 벽과 해결법</h4>
                             <p class="text-sm text-navy-900 dark:text-white font-semibold mb-2">"분석 도구가 던져주는 한정된 리포트의 아쉬움"</p>
                             <p class="text-xs text-slateCustom dark:text-slate-400 leading-relaxed">
@@ -300,7 +323,7 @@
                                 <span class="bg-slate-100 dark:bg-slate-800 text-slateCustom dark:text-slate-300 text-xs px-2.5 py-1 rounded-md font-medium">Tableau 시각화</span>
                             </div>
                         </div>
-                        <div class="md:col-span-5 bg-slate-50 dark:bg-slate-950 p-6 rounded-2xl border border-slate-200 dark:border-slate-800">
+                        <div class="card-hover md:col-span-5 bg-slate-50 dark:bg-slate-950 p-6 rounded-2xl border border-slate-200 dark:border-slate-800">
                             <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-3"><i class="fa-solid fa-triangle-exclamation text-amber-500 mr-1"></i> 마주한 벽과 해결법</h4>
                             <p class="text-sm text-navy-900 dark:text-white font-semibold mb-2">"지표 너머, 실제 원인은 어떻게 예측할 것인가?"</p>
                             <p class="text-xs text-slateCustom dark:text-slate-400 leading-relaxed">
@@ -327,7 +350,7 @@
                                 <span class="bg-slate-100 dark:bg-slate-800 text-slateCustom dark:text-slate-300 text-xs px-2.5 py-1 rounded-md font-medium">SHAP Feature Importance</span>
                             </div>
                         </div>
-                        <div class="md:col-span-5 bg-slate-50 dark:bg-slate-950 p-6 rounded-2xl border border-slate-200 dark:border-slate-800">
+                        <div class="card-hover md:col-span-5 bg-slate-50 dark:bg-slate-950 p-6 rounded-2xl border border-slate-200 dark:border-slate-800">
                             <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-3"><i class="fa-solid fa-triangle-exclamation text-amber-500 mr-1"></i> 마주한 벽과 해결법</h4>
                             <p class="text-sm text-navy-900 dark:text-white font-semibold mb-2">"모델링의 수치 조정보다 중요한 것은 탄탄한 파이프라인"</p>
                             <p class="text-xs text-slateCustom dark:text-slate-400 leading-relaxed">
@@ -354,7 +377,7 @@
                                 <span class="bg-slate-100 dark:bg-slate-800 text-slateCustom dark:text-slate-300 text-xs px-2.5 py-1 rounded-md font-medium">Streamlit & Cloud 배포</span>
                             </div>
                         </div>
-                        <div class="md:col-span-5 bg-slate-50 p-6 dark:bg-slate-950 rounded-2xl border border-slate-200 dark:border-slate-800">
+                        <div class="card-hover md:col-span-5 bg-slate-50 p-6 dark:bg-slate-950 rounded-2xl border border-slate-200 dark:border-slate-800">
                             <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-3"><i class="fa-solid fa-triangle-exclamation text-amber-500 mr-1"></i> 마주한 벽과 해결법</h4>
                             <p class="text-sm text-navy-900 dark:text-white font-semibold mb-2">"견고하지 못한 코드 구조와 정밀도 아쉬움"</p>
                             <p class="text-xs text-slateCustom dark:text-slate-400 leading-relaxed">
@@ -381,7 +404,7 @@
                                 <span class="bg-slate-100 dark:bg-slate-800 text-slateCustom dark:text-slate-300 text-xs px-2.5 py-1 rounded-md font-medium">협업 시너지 & 스터디</span>
                             </div>
                         </div>
-                        <div class="md:col-span-5 bg-slate-50 dark:bg-slate-950 p-6 rounded-2xl border border-slate-200 dark:border-slate-800">
+                        <div class="card-hover md:col-span-5 bg-slate-50 dark:bg-slate-950 p-6 rounded-2xl border border-slate-200 dark:border-slate-800">
                             <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-3"><i class="fa-solid fa-graduation-cap text-indigo-500 mr-1"></i> 동료들에게 보내는 약속</h4>
                             <p class="text-sm text-navy-900 dark:text-white font-semibold mb-2">"무슨 내용이든 함께 고민하고, 함께 나아가겠습니다"</p>
                             <p class="text-xs text-slateCustom dark:text-slate-400 leading-relaxed">
@@ -397,16 +420,16 @@
  
     <!-- Interactive Fun Section (미니 데이터 시뮬레이션) -->
     <section id="interactive" class="py-20 bg-white dark:bg-slate-900">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <span class="text-xs font-bold text-gold-600 dark:text-gold-500 tracking-wider uppercase">INTERACTIVE ZONE</span>
                 <h2 class="text-3xl font-bold font-serif-kr text-navy-900 dark:text-white mb-4">프로젝트 실시간 시뮬레이션</h2>
                 <p class="text-slateCustom dark:text-slate-400 max-w-xl mx-auto text-sm sm:text-base">
-                    제가 고민했던 두 가지의 실제 머신러닝/비즈니스 분석 데이터를 여러분이 직접 조작해보세요!
+                    제가 고민했던 세 가지의 실제 머신러닝/비즈니스 분석 데이터를 여러분이 직접 조작해보세요!
                 </p>
             </div>
  
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 
                 <!-- Card 1: Churn Predictor Simulator -->
                 <div class="bg-[#faf9f6] dark:bg-slate-950 p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm relative overflow-hidden">
@@ -523,7 +546,76 @@
                         </p>
                     </div>
                 </div>
- 
+
+                <!-- Card 3: Olist E-commerce Growth Diagnostic -->
+                <div class="bg-[#faf9f6] dark:bg-slate-950 p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <span class="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center">
+                                <i class="fa-solid fa-store"></i>
+                            </span>
+                            <div>
+                                <h3 class="text-lg font-bold text-navy-900 dark:text-white">이커머스 매출 구조 진단기</h3>
+                                <p class="text-xs text-slateCustom dark:text-slate-400">Olist SQL Data Service · 브라질 이커머스 데이터 기반</p>
+                            </div>
+                        </div>
+
+                        <p class="text-sm text-slateCustom dark:text-slate-300 leading-relaxed mb-6">
+                            매출 변동의 원인을 구조적으로 분해한 실제 분석 프로젝트입니다. 4개 분석 모듈을 눌러 핵심 진단 결과를 확인해보세요.
+                        </p>
+
+                        <!-- Analysis module selector tabs -->
+                        <div class="grid grid-cols-2 gap-2 mb-6">
+                            <button onclick="selectOlistModule('growth')" class="olist-tab-btn py-2.5 px-2 rounded-xl text-[11px] font-bold transition-all text-center border bg-indigo-600 text-white border-indigo-700" id="btn-olist-growth">
+                                <i class="fa-solid fa-chart-line mr-1"></i> 성장 구조
+                            </button>
+                            <button onclick="selectOlistModule('drilldown')" class="olist-tab-btn py-2.5 px-2 rounded-xl text-[11px] font-bold transition-all text-center border bg-white text-slateCustom border-slate-200 hover:border-slate-300 dark:bg-slate-900 dark:text-slate-300 dark:border-slate-800" id="btn-olist-drilldown">
+                                <i class="fa-solid fa-arrow-trend-down mr-1"></i> 매출 급락 원인
+                            </button>
+                            <button onclick="selectOlistModule('customer')" class="olist-tab-btn py-2.5 px-2 rounded-xl text-[11px] font-bold transition-all text-center border bg-white text-slateCustom border-slate-200 hover:border-slate-300 dark:bg-slate-900 dark:text-slate-300 dark:border-slate-800" id="btn-olist-customer">
+                                <i class="fa-solid fa-users mr-1"></i> 고객 가치 구조
+                            </button>
+                            <button onclick="selectOlistModule('operations')" class="olist-tab-btn py-2.5 px-2 rounded-xl text-[11px] font-bold transition-all text-center border bg-white text-slateCustom border-slate-200 hover:border-slate-300 dark:bg-slate-900 dark:text-slate-300 dark:border-slate-800" id="btn-olist-operations">
+                                <i class="fa-solid fa-gauge mr-1"></i> 운영 안정성
+                            </button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <!-- Output panel -->
+                        <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200/60 dark:border-slate-800">
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-xs font-bold text-navy-900 dark:text-white" id="olist-module-label">📈 Growth Structure</span>
+                                <span class="text-[10px] text-slate-400 dark:text-slate-500">2017-01 ~ 2018-08</span>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-3 mb-4" id="olist-stats">
+                                <div class="bg-slate-50 dark:bg-slate-950 rounded-lg p-3">
+                                    <p class="text-[10px] text-slate-400 dark:text-slate-500 mb-1" id="olist-stat1-label">매출 성장 (2017.01→11)</p>
+                                    <p class="text-sm font-bold text-navy-900 dark:text-white" id="olist-stat1-val">9배 이상 ↑</p>
+                                </div>
+                                <div class="bg-slate-50 dark:bg-slate-950 rounded-lg p-3">
+                                    <p class="text-[10px] text-slate-400 dark:text-slate-500 mb-1" id="olist-stat2-label">AOV / ARPB 변동</p>
+                                    <p class="text-sm font-bold text-navy-900 dark:text-white" id="olist-stat2-val">안정적 유지</p>
+                                </div>
+                            </div>
+
+                            <p class="text-xs text-slateCustom dark:text-slate-300 leading-relaxed pt-4 border-t border-slate-100 dark:border-slate-800" id="olist-desc">
+                                매출 증가는 고객 1인당 가치 상승이 아닌 구매자 수·주문 수 확대에 의한 거래량(Volume) 중심 성장 구조로 나타났습니다.
+                            </p>
+                        </div>
+
+                        <div class="flex gap-2 mt-4">
+                            <a href="https://ldomeenik-olist-sql-data-service.streamlit.app/" target="_blank" rel="noopener" class="flex-1 text-center text-[11px] font-bold py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 text-navy-900 dark:text-slate-200 hover:bg-navy-900 hover:text-white hover:border-navy-900 dark:hover:bg-gold-500 dark:hover:text-navy-900 dark:hover:border-gold-500 transition-all">
+                                <i class="fa-solid fa-play mr-1"></i> Live Demo
+                            </a>
+                            <a href="https://github.com/LDomeenik/Olist_SQL_Data_Service" target="_blank" rel="noopener" class="flex-1 text-center text-[11px] font-bold py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 text-navy-900 dark:text-slate-200 hover:bg-navy-900 hover:text-white hover:border-navy-900 dark:hover:bg-gold-500 dark:hover:text-navy-900 dark:hover:border-gold-500 transition-all">
+                                <i class="fa-brands fa-github mr-1"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -616,12 +708,32 @@
     </footer>
  
     <!-- Toast Notification Element -->
-    <div id="toast" class="fixed bottom-5 right-5 z-50 bg-navy-900 text-white px-5 py-3 rounded-2xl shadow-xl border border-white/10 text-xs hidden flex items-center gap-2">
-        <i class="fa-solid fa-circle-check text-gold-500 text-sm"></i> <span id="toast-msg">복사되었습니다!</span>
+    <div id="toast" class="fixed bottom-5 right-5 left-5 sm:left-auto z-50 bg-navy-900 text-white px-5 py-3 rounded-2xl shadow-xl border border-white/10 text-xs hidden flex items-center gap-2 sm:max-w-xs">
+        <i class="fa-solid fa-circle-check text-gold-500 text-sm shrink-0"></i> <span id="toast-msg" class="break-keep">복사되었습니다!</span>
     </div>
  
     <!-- Custom Logic and Interactions Script -->
     <script>
+        // Mobile Hamburger Menu Toggle
+        function toggleMobileMenu() {
+            const panel = document.getElementById('mobile-menu-panel');
+            const icon = document.getElementById('mobile-menu-icon');
+            const isOpen = !panel.classList.contains('hidden');
+
+            if (isOpen) {
+                panel.classList.add('hidden');
+                icon.className = "fa-solid fa-bars text-base";
+            } else {
+                panel.classList.remove('hidden');
+                icon.className = "fa-solid fa-xmark text-base";
+            }
+        }
+
+        function closeMobileMenu() {
+            document.getElementById('mobile-menu-panel').classList.add('hidden');
+            document.getElementById('mobile-menu-icon').className = "fa-solid fa-bars text-base";
+        }
+
         // Dark/Light Theme Switcher Logic
         function initTheme() {
             const isDark = document.documentElement.classList.contains('dark');
@@ -745,6 +857,60 @@
             }
         }
  
+        // Olist E-commerce Growth Diagnostic module data
+        const olistModules = {
+            growth: {
+                label: "📈 Growth Structure",
+                stat1_label: "매출 성장 (2017.01→11)",
+                stat1_val: "9배 이상 ↑",
+                stat2_label: "AOV / ARPB 변동",
+                stat2_val: "안정적 유지",
+                desc: "매출 증가는 고객 1인당 가치 상승이 아닌 구매자 수·주문 수 확대에 의한 거래량(Volume) 중심 성장 구조로 나타났습니다."
+            },
+            drilldown: {
+                label: "📉 Growth Drill Down (2017-11→12)",
+                stat1_label: "매출 변화",
+                stat1_val: "-26.9%",
+                stat2_label: "Active Buyers 변화",
+                stat2_val: "-24.12%",
+                desc: "Orders(-24.36%)와 Active Buyers(-24.12%)가 유사하게 감소한 반면 AOV(-3.36%)는 안정적이었습니다. 특정 카테고리·지역 문제가 아닌, 신규 고객 유입 감소에 의한 전반적 수요 축소로 진단됩니다."
+            },
+            customer: {
+                label: "👥 Customer Value Structure",
+                stat1_label: "Repeat Rate / Cohort Retention",
+                stat1_val: "1~3% / <1%",
+                stat2_label: "Top 10% 고객 매출 비중",
+                stat2_val: "35~40%",
+                desc: "재구매율과 코호트 리텐션이 모두 매우 낮아, 매출이 기존 고객 유지보다 신규 고객 유입에 크게 의존하는 구조입니다. 다만 상위 고객 의존도는 과도한 수준은 아닙니다."
+            },
+            operations: {
+                label: "⚙️ Operational Stability",
+                stat1_label: "Cancel / Unavailable Rate",
+                stat1_val: "안정적 유지",
+                stat2_label: "매출 급락기 이상 징후",
+                stat2_val: "없음",
+                desc: "운영 지표는 전반적으로 안정적이며 시간에 따라 개선되는 흐름을 보였습니다. 매출 변동은 운영 문제가 아닌 수요·고객 구조 변화에서 기인함을 뒷받침합니다."
+            }
+        };
+
+        function selectOlistModule(type) {
+            const data = olistModules[type];
+            if (!data) return;
+
+            document.getElementById('olist-module-label').innerText = data.label;
+            document.getElementById('olist-stat1-label').innerText = data.stat1_label;
+            document.getElementById('olist-stat1-val').innerText = data.stat1_val;
+            document.getElementById('olist-stat2-label').innerText = data.stat2_label;
+            document.getElementById('olist-stat2-val').innerText = data.stat2_val;
+            document.getElementById('olist-desc').innerText = data.desc;
+
+            document.querySelectorAll('.olist-tab-btn').forEach(btn => {
+                btn.className = "olist-tab-btn py-2.5 px-2 rounded-xl text-[11px] font-bold transition-all text-center border bg-white text-slateCustom border-slate-200 hover:border-slate-300 dark:bg-slate-900 dark:text-slate-300 dark:border-slate-800";
+            });
+            const activeBtn = document.getElementById(`btn-olist-${type}`);
+            activeBtn.className = "olist-tab-btn py-2.5 px-2 rounded-xl text-[11px] font-bold transition-all text-center border bg-indigo-600 text-white border-indigo-700";
+        }
+
         // Simple Toast indicator helper
         function showToast(message) {
             const toast = document.getElementById('toast');
