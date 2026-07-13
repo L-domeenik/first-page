@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이종윤 | 예비 개발자 페이스메이커</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Noto Serif KR (Heading), Inter/Pretendard (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Style Settings -->
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', 'Pretendard', sans-serif;
+            background-color: #faf9f6; /* Warm White */
+            color: #334155; /* Slate Gray */
+        }
+        .font-serif-kr {
+            font-family: 'Noto Serif KR', serif;
+        }
+        /* Custom color definitions to align with Step 6 */
+        .color-navy { color: #0B192C; }
+        .bg-navy { background-color: #0B192C; }
+        .color-gold { color: #D4AF37; }
+        .bg-gold { background-color: #D4AF37; }
+        .border-gold { border-color: #D4AF37; }
+        
+        /* Smooth Custom Transitions */
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -10px rgba(11, 25, 44, 0.15);
+        }
+        /* Fade in animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            800: '#1E3E62',
+                            900: '#0B192C',
+                        },
+                        gold: {
+                            500: '#DFB15B',
+                            600: '#C59B27',
+                        },
+                        slateCustom: '#475569',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="selection:bg-gold-500 selection:text-white">
+
+    <!-- Navigation Header -->
+    <nav class="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md border-b border-slate-200 z-40 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo / Title -->
+                <div class="flex items-center">
+                    <a href="#" class="text-navy-900 font-serif-kr font-bold text-lg tracking-wider">
+                        JONGYOON <span class="text-gold-500 font-sans text-sm font-semibold">.DEV</span>
+                    </a>
+                </div>
+                <!-- Menu (Desktop) -->
+                <div class="hidden md:flex space-x-8 text-sm font-medium">
+                    <a href="#hero" class="text-navy-900 hover:text-gold-500 transition-colors">홈</a>
+                    <a href="#story" class="text-navy-900 hover:text-gold-500 transition-colors">인생 로드맵</a>
+                    <a href="#evolution" class="text-navy-900 hover:text-gold-500 transition-colors">성장 히스토리</a>
+                    <a href="#interactive" class="text-navy-900 hover:text-gold-500 transition-colors">시뮬레이션</a>
+                    <a href="#outro" class="text-navy-900 hover:text-gold-500 transition-colors">궁금한 점</a>
+                </div>
+                <!-- Open Strategy Blueprint Button -->
+                <div>
+                    <button onclick="toggleModal('blueprint-modal')" class="bg-navy-900 text-white text-xs px-4 py-2 rounded-full font-medium hover:bg-gold-500 transition-all shadow-sm">
+                        <i class="fa-solid fa-map-location-dot mr-1.5"></i>브랜드 설계도
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen pt-24 pb-16 flex items-center justify-center overflow-hidden bg-gradient-to-b from-white to-[#F3F4F6]">
+        <!-- Background decorative vectors -->
+        <div class="absolute inset-0 z-0 opacity-40">
+            <svg class="absolute right-0 top-1/4 w-96 h-96 text-gold-500/10" fill="currentColor" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="40" />
+            </svg>
+            <svg class="absolute left-10 bottom-10 w-64 h-64 text-navy-900/5" fill="currentColor" viewBox="0 0 100 100">
+                <rect x="20" y="20" width="60" height="60" rx="10" />
+            </svg>
+        </div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 animate-fade-in">
+            <!-- Profile Subtitle Badge -->
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-navy-900/5 text-navy-900 mb-6">
+                <span class="w-2 h-2 rounded-full bg-gold-500 animate-pulse"></span>
+                SSAFY 예비 동료이자 든든한 러닝메이트
+            </span>
+            
+            <!-- Catchphrase -->
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-navy-900 font-serif-kr leading-tight mb-6">
+                본질을 채워 무한히 확장하는,<br>
+                <span class="relative inline-block">
+                    <span class="relative z-10 text-navy-900">멈추지 않는 예비 개발자</span>
+                    <span class="absolute bottom-1 left-0 w-full h-3 bg-gold-500/20 z-0"></span>
+                </span>
+            </h1>
+
+            <!-- Welcome Text -->
+            <p class="text-base sm:text-lg text-slateCustom max-w-2xl mx-auto leading-relaxed mb-8">
+                안녕하세요! 사람을 돕는 기술을 고민하는 <strong class="text-navy-900 font-semibold">이종윤</strong>입니다.<br class="hidden sm:inline">
+                신학에서 출발해 사용자의 행동을 헤아리는 데이터를 만나고,<br class="hidden sm:inline">
+                이제는 여러분과 함께 SSAFY에서 가장 튼튼한 CS 뼈대를 채워가려 합니다.
+            </p>
+
+            <!-- Action buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#story" class="w-full sm:w-auto bg-navy-900 text-white px-8 py-3.5 rounded-xl font-medium hover:bg-gold-600 transition-all shadow-md flex items-center justify-center gap-2">
+                    이종윤 성장 스토리 읽기 <i class="fa-solid fa-arrow-down text-sm"></i>
+                </a>
+                <a href="#outro" class="w-full sm:w-auto bg-white border border-slate-300 text-navy-900 px-8 py-3.5 rounded-xl font-medium hover:bg-slate-50 transition-all flex items-center justify-center gap-2">
+                    <i class="fa-regular fa-comment-dots"></i> 궁금한 점 물어보기
+                </a>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="mt-16 animate-bounce">
+                <a href="#story" class="text-slate-400 hover:text-navy-900 text-sm">
+                    <span class="block">더 알아보기</span>
+                    <i class="fa-solid fa-chevron-down mt-1"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Story (인생 로드맵) -->
+    <section id="story" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold font-serif-kr text-navy-900 mb-4">인생 로드맵: 사람을 위한 기술로</h2>
+                <p class="text-slateCustom max-w-xl mx-auto text-sm sm:text-base">
+                    신학을 깊이 공부하며 깨우친 인문학적 가치관이 데이터를 만난 세 번의 마일스톤입니다.
+                </p>
+            </div>
+
+            <div class="relative border-l-2 border-slate-200 ml-4 md:ml-32">
+                <!-- Milestone 1 -->
+                <div class="mb-12 relative pl-6">
+                    <!-- Icon badge on Left for medium screens -->
+                    <div class="absolute -left-3 top-1 bg-white border-2 border-navy-900 rounded-full w-6 h-6 flex items-center justify-center z-10">
+                        <span class="w-2 h-2 rounded-full bg-navy-900"></span>
+                    </div>
+                    <div class="hidden md:block absolute -left-36 top-1 text-right w-28 text-xs font-semibold text-slate-400">
+                        인문학적 고민
+                    </div>
+                    <div class="bg-[#faf9f6] p-6 rounded-2xl border border-slate-100 hover:border-gold-500/30 transition-all shadow-sm">
+                        <span class="text-xs font-bold text-gold-600 tracking-wider uppercase">Turning Point 01</span>
+                        <h3 class="text-lg font-bold text-navy-900 mt-1 mb-2 font-serif-kr">길 잃은 신학도, 봉사활동에서 길을 찾다</h3>
+                        <p class="text-sm text-slateCustom leading-relaxed">
+                            원래 전공은 신학이었습니다. 군 복무와 휴학 중 참여했던 사회공헌 봉사활동에서 어르신들과 취약계층 분들이 교묘한 금융 사기 피해로 눈물 흘리는 모습을 마주했습니다. 기술이 사람에게 비수가 아니라 실질적인 울타리가 될 수 없을까? 이 뼈저린 고민이 제 가치관의 뿌리가 되었습니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Milestone 2 -->
+                <div class="mb-12 relative pl-6">
+                    <div class="absolute -left-3 top-1 bg-white border-2 border-navy-900 rounded-full w-6 h-6 flex items-center justify-center z-10">
+                        <span class="w-2 h-2 rounded-full bg-navy-900"></span>
+                    </div>
+                    <div class="hidden md:block absolute -left-36 top-1 text-right w-28 text-xs font-semibold text-slate-400">
+                        데이터와의 조우
+                    </div>
+                    <div class="bg-[#faf9f6] p-6 rounded-2xl border border-slate-100 hover:border-gold-500/30 transition-all shadow-sm">
+                        <span class="text-xs font-bold text-gold-600 tracking-wider uppercase">Turning Point 02</span>
+                        <h3 class="text-lg font-bold text-navy-900 mt-1 mb-2 font-serif-kr">"데이터는 사람의 행동을 설명하는 언어다"</h3>
+                        <p class="text-sm text-slateCustom leading-relaxed">
+                            진로를 전환하며 관심 가졌던 마케팅 대외활동(청년이룸 등)에서 구글 애널리틱스(GA)를 접했습니다. 화면 안 무수히 많은 지표들이 단순히 숫자가 아니라, 웹을 이용하는 진짜 사용자의 '한숨', '머무름', '망설임'이라는 것을 깨닫고 본격적인 데이터 공부의 노를 저어 가기 시작했습니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Milestone 3 -->
+                <div class="relative pl-6">
+                    <div class="absolute -left-3 top-1 bg-white border-2 border-navy-900 rounded-full w-6 h-6 flex items-center justify-center z-10">
+                        <span class="w-2 h-2 rounded-full bg-navy-900"></span>
+                    </div>
+                    <div class="hidden md:block absolute -left-36 top-1 text-right w-28 text-xs font-semibold text-slate-400">
+                        원리의 정면 돌파
+                    </div>
+                    <div class="bg-[#faf9f6] p-6 rounded-2xl border border-slate-100 hover:border-gold-500/30 transition-all shadow-sm">
+                        <span class="text-xs font-bold text-gold-600 tracking-wider uppercase">Turning Point 03</span>
+                        <h3 class="text-lg font-bold text-navy-900 mt-1 mb-2 font-serif-kr">한계를 딛고, 원리를 파고드는 엔지니어로</h3>
+                        <p class="text-sm text-slateCustom leading-relaxed">
+                            신용카드 이탈 예측 프로젝트 당시, 정밀하게 짠 머신러닝의 내부 수학 원리를 제대로 설명하지 못해 침묵해야 했던 뼈아픈 한계를 마주했습니다. 도구만 휘두르는 것이 아니라 원리를 100% 장악하고 설명할 수 있어야 한다는 집념으로 저는 단순 분석가에서 한 단계 더 나아가 데이터의 처음과 끝을 설계하는 엔지니어 영역에 도전하게 되었습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Evolution (내가 벽을 마주하며 성장해 온 방식) -->
+    <section id="evolution" class="py-20 bg-slate-50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold font-serif-kr text-navy-900 mb-4">나의 벽을 마주하며 쌓은 벽돌들</h2>
+                <p class="text-slateCustom max-w-xl mx-auto text-sm sm:text-base">
+                    "저는 결코 처음부터 완성된 인재가 아닙니다. 다만 막히는 모든 한계를 정면 돌파하며 외연을 견고히 확장해왔습니다."
+                </p>
+                <!-- Quick evolution navigation tabs -->
+                <div class="flex flex-wrap justify-center gap-2 mt-8">
+                    <button onclick="switchTab('tab-step1')" class="evo-tab-btn px-4 py-2 text-xs font-medium bg-navy-900 text-white rounded-lg transition-all" id="btn-tab-step1">
+                        Step 1. 행동 데이터
+                    </button>
+                    <button onclick="switchTab('tab-step2')" class="evo-tab-btn px-4 py-2 text-xs font-medium bg-white text-slateCustom border border-slate-200 rounded-lg transition-all" id="btn-tab-step2">
+                        Step 2. 쿼리와 EDA
+                    </button>
+                    <button onclick="switchTab('tab-step3')" class="evo-tab-btn px-4 py-2 text-xs font-medium bg-white text-slateCustom border border-slate-200 rounded-lg transition-all" id="btn-tab-step3">
+                        Step 3. 머신러닝 & 설명력
+                    </button>
+                    <button onclick="switchTab('tab-step4')" class="evo-tab-btn px-4 py-2 text-xs font-medium bg-white text-slateCustom border border-slate-200 rounded-lg transition-all" id="btn-tab-step4">
+                        Step 4. 파이프라인 자동화
+                    </button>
+                    <button onclick="switchTab('tab-step5')" class="evo-tab-btn px-4 py-2 text-xs font-medium bg-white text-slateCustom border border-slate-200 rounded-lg transition-all" id="btn-tab-step5">
+                        Step 5. CS & 알고리즘 (SSAFY)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Evolution Contents Frame -->
+            <div class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-100 shadow-xl transition-all">
+                
+                <!-- Step 1 Content -->
+                <div id="tab-step1" class="evo-content">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                        <div class="md:col-span-7">
+                            <span class="inline-flex items-center gap-1 bg-gold-500/10 text-gold-600 text-xs px-2.5 py-1 rounded-md font-bold mb-4">
+                                <i class="fa-solid fa-users"></i> 마케팅 대외활동
+                            </span>
+                            <h3 class="text-2xl font-bold font-serif-kr text-navy-900 mb-4">마케팅 데이터(GA)로 사용자의 갈증에 눈뜨다</h3>
+                            <p class="text-sm text-slateCustom leading-relaxed mb-6">
+                                처음 접했던 데이터의 역할은 '사용자 심리의 대변자'였습니다. 이탈 고객들이 어떤 버튼에서 멈칫했는지 가설을 도출하며 데이터 분석에 깊은 동기부여를 받았습니다.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-slate-100 text-slateCustom text-xs px-2.5 py-1 rounded-md font-medium">Google Analytics</span>
+                                <span class="bg-slate-100 text-slateCustom text-xs px-2.5 py-1 rounded-md font-medium">검색광고마케터 1급</span>
+                                <span class="bg-slate-100 text-slateCustom text-xs px-2.5 py-1 rounded-md font-medium">사용자 행동 파악</span>
+                            </div>
+                        </div>
+                        <div class="md:col-span-5 bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3"><i class="fa-solid fa-triangle-exclamation text-amber-500 mr-1"></i> 마주한 벽과 해결법</h4>
+                            <p class="text-sm text-navy-900 font-semibold mb-2">"분석 도구가 던져주는 한정된 리포트의 아쉬움"</p>
+                            <p class="text-xs text-slateCustom leading-relaxed">
+                                GA 화면 상의 단순 UI만으론 세밀한 행동 패턴을 밝힐 수 없었습니다. 이를 계기로 원시 로그 데이터를 직접 만질 수 있는 파이썬과 SQL 학습에 올인하였습니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 Content -->
+                <div id="tab-step2" class="evo-content hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                        <div class="md:col-span-7">
+                            <span class="inline-flex items-center gap-1 bg-teal-500/10 text-teal-600 text-xs px-2.5 py-1 rounded-md font-bold mb-4">
+                                <i class="fa-solid fa-database"></i> 데이터 마케팅 & 기본기
+                            </span>
+                            <h3 class="text-2xl font-bold font-serif-kr text-navy-900 mb-4">SQL과 EDA로 '비즈니스의 흐름'을 설계하다</h3>
+                            <p class="text-sm text-slateCustom leading-relaxed mb-6">
+                                단순 쿼리 작성을 넘어, 가설을 수립하고 비즈니스 지표(AARRR 등)를 명확하게 세워나가는 법을 익혔습니다. ADsP, SQLD를 공부하며 데이터 마트의 중요성을 직접 깨달았습니다.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-slate-100 text-slateCustom text-xs px-2.5 py-1 rounded-md font-medium">SQLD & ADsP</span>
+                                <span class="bg-slate-100 text-slateCustom text-xs px-2.5 py-1 rounded-md font-medium">AARRR 지표 설정</span>
+                                <span class="bg-slate-100 text-slateCustom text-xs px-2.5 py-1 rounded-md font-medium">Tableau 시각화</span>
+                            </div>
+                        </div>
+                        <div class="md:col-span-5 bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3"><i class="fa-solid fa-triangle-exclamation text-amber-500 mr-1"></i> 마주한 벽과 해결법</h4>
+                            <p class="text-sm text-navy-900 font-semibold mb-2">"지표 너머, 실제 원인은 어떻게 예측할 것인가?"</p>
+                            <p class="text-xs text-slateCustom leading-relaxed">
+                                흘러간 과거 지표 정리만으로는 다가올 이탈 고객의 행동을 원천 방어할 수 없었습니다. 더 깊은 예측을 위해 머신러닝 이론으로 깊숙이 파고들었습니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 Content -->
+                <div id="tab-step3" class="evo-content hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                        <div class="md:col-span-7">
+                            <span class="inline-flex items-center gap-1 bg-indigo-500/10 text-indigo-600 text-xs px-2.5 py-1 rounded-md font-bold mb-4">
+                                <i class="fa-solid fa-brain"></i> 머신러닝 예측 프로젝트
+                            </span>
+                            <h3 class="text-2xl font-bold font-serif-kr text-navy-900 mb-4">예측을 하며 '이유를 설명하는 능력'의 중요성을 배우다</h3>
+                            <p class="text-sm text-slateCustom leading-relaxed mb-6">
+                                신용카드 이탈 예측 프로젝트를 진행하며 모델의 정확도 뿐 아니라, 도메인에 대한 직관을 보태기 위해 CatBoost와 Kmeans Clustering을 유기적으로 엮어 실제 타겟 마케팅 방안(LTV 기반 약 4.4억원 절감 효과)을 도출했습니다.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-slate-100 text-slateCustom text-xs px-2.5 py-1 rounded-md font-medium">CatBoost & Optuna</span>
+                                <span class="bg-slate-100 text-slateCustom text-xs px-2.5 py-1 rounded-md font-medium">K-Means & RobustScaler</span>
+                                <span class="bg-slate-100 text-slateCustom text-xs px-2.5 py-1 rounded-md font-medium">SHAP Feature Importance</span>
+                            </div>
+                        </div>
+                        <div class="md:col-span-5 bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3"><i class="fa-solid fa-triangle-exclamation text-amber-500 mr-1"></i> 마주한 벽과 해결법</h4>
+                            <p class="text-sm text-navy-900 font-semibold mb-2">"모델링의 수치 조정보다 중요한 것은 탄탄한 파이프라인"</p>
+                            <p class="text-xs text-slateCustom leading-relaxed">
+                                모델 파라미터 튜닝에 밤새워 매달리던 중, 로컬 주피터 환경의 모델은 실제 현업의 지속적인 비즈니스 가공 과정(Raw ➔ Staging ➔ Mart)을 보조해주지 못한다는 전반적 한계를 느끼고 아키텍처에 관심을 키웠습니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4 Content -->
+                <div id="tab-step4" class="evo-content hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                        <div class="md:col-span-7">
+                            <span class="inline-flex items-center gap-1 bg-purple-500/10 text-purple-600 text-xs px-2.5 py-1 rounded-md font-bold mb-4">
+                                <i class="fa-solid fa-code-fork"></i> 데이터 엔지니어링 확장
+                            </span>
+                            <h3 class="text-2xl font-bold font-serif-kr text-navy-900 mb-4">데이터 파이프라인과 배포로 '처음부터 끝'을 뚫다</h3>
+                            <p class="text-sm text-slateCustom leading-relaxed mb-6">
+                                분석가에만 가둬져 머무르고 싶지 않아, 원본 데이터를 Raw ➔ Staging ➔ Data Mart로 나누어 설계하는 파이프라인을 구축했습니다. 파이썬 기반 데이터 적재를 자동화하고 사용자들이 업로드하면 Streamlit을 통해 누구나 가치를 볼 수 있게 실배포까지 마무리 지어 보았습니다.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-slate-100 text-slateCustom text-xs px-2.5 py-1 rounded-md font-medium">PostgreSQL & PySpark</span>
+                                <span class="bg-slate-100 text-slateCustom text-xs px-2.5 py-1 rounded-md font-medium">E2E Pipeline</span>
+                                <span class="bg-slate-100 text-slateCustom text-xs px-2.5 py-1 rounded-md font-medium">Streamlit & Cloud 배포</span>
+                            </div>
+                        </div>
+                        <div class="md:col-span-5 bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3"><i class="fa-solid fa-triangle-exclamation text-amber-500 mr-1"></i> 마주한 벽과 해결법</h4>
+                            <p class="text-sm text-navy-900 font-semibold mb-2">"견고하지 못한 코드 구조와 정밀도 아쉬움"</p>
+                            <p class="text-xs text-slateCustom leading-relaxed">
+                                파이프라인 구조를 짜면서 기초적인 컴퓨터 시스템 지식, 그리고 대용량 처리를 위한 단단한 자료구조와 알고리즘의 실전 부재를 뼈저리게 느꼈습니다. 이것이 취업보다 1년의 훈련(SSAFY)에 도전하기로 결심한 결정적 한 발자국입니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 5 Content -->
+                <div id="tab-step5" class="evo-content hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                        <div class="md:col-span-7">
+                            <span class="inline-flex items-center gap-1 bg-red-500/10 text-red-600 text-xs px-2.5 py-1 rounded-md font-bold mb-4">
+                                <i class="fa-solid fa-shield-halved"></i> SSAFY 1년의 다짐
+                            </span>
+                            <h3 class="text-2xl font-bold font-serif-kr text-navy-900 mb-4">가장 단단한 본질인 CS & 알고리즘을 채우는 중</h3>
+                            <p class="text-sm text-slateCustom leading-relaxed mb-6">
+                                예비 개발자로서 저의 '마지막 가장 단단한 퍼즐'을 바로 이곳 SSAFY에서 한 학기 한 학기 맞추고 있습니다. 기술을 그저 쓰는 것을 넘어, 시간복잡도를 따지고 구조적인 코드를 설계해 동료들과 함께 건강하게 밤샐 수 있는 든든한 동반자가 되겠습니다.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-slate-100 text-slateCustom text-xs px-2.5 py-1 rounded-md font-medium">자료구조 & 알고리즘</span>
+                                <span class="bg-slate-100 text-slateCustom text-xs px-2.5 py-1 rounded-md font-medium">CS 핵심 지식</span>
+                                <span class="bg-slate-100 text-slateCustom text-xs px-2.5 py-1 rounded-md font-medium">협업 시너지 & 스터디</span>
+                            </div>
+                        </div>
+                        <div class="md:col-span-5 bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3"><i class="fa-solid fa-graduation-cap text-indigo-500 mr-1"></i> 동료들에게 보내는 약속</h4>
+                            <p class="text-sm text-navy-900 font-semibold mb-2">"막히면 끝까지 같이 고민하는 페이스메이커"</p>
+                            <p class="text-xs text-slateCustom leading-relaxed">
+                                혹시 프로젝트를 하면서 데이터 수집이나 처리 구조, 쿼리 작성 혹은 Tableau 시각화에 막히는 부분이 있나요? 혼자 끙끙 앓지 말고 저에게 편하게 찾아와 주세요. 막힌 지점을 뚫어낼 때까지 같이 웃으며 공부하겠습니다!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Fun Section (미니 데이터 시뮬레이션) -->
+    <section id="interactive" class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-xs font-bold text-gold-600 tracking-wider uppercase">INTERACTIVE ZONE</span>
+                <h2 class="text-3xl font-bold font-serif-kr text-navy-900 mb-4">프로젝트 실시간 시뮬레이션</h2>
+                <p class="text-slateCustom max-w-xl mx-auto text-sm sm:text-base">
+                    제가 고민했던 두 가지의 실제 머신러닝/비즈니스 분석 데이터를 여러분이 직접 조작해보세요!
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                
+                <!-- Card 1: Churn Predictor Simulator -->
+                <div class="bg-[#faf9f6] p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm relative overflow-hidden">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="w-10 h-10 rounded-xl bg-navy-900 text-white flex items-center justify-center">
+                            <i class="fa-solid fa-credit-card"></i>
+                        </span>
+                        <div>
+                            <h3 class="text-lg font-bold text-navy-900">신용카드 이탈 위험 예측기</h3>
+                            <p class="text-xs text-slateCustom">CatBoost 임계값(0.55) 기반 피처 가중치 테스트</p>
+                        </div>
+                    </div>
+
+                    <!-- Simulator Inputs -->
+                    <div class="space-y-4 text-sm mb-6">
+                        <div>
+                            <div class="flex justify-between font-medium mb-1 text-slateCustom">
+                                <span>지난 12개월간 거래 횟수 (Total_Trans_Ct)</span>
+                                <span class="text-navy-900 font-bold" id="val-trans-ct">45</span>
+                            </div>
+                            <input type="range" min="10" max="150" value="45" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-navy-900" id="slide-trans-ct" oninput="calculateChurn()">
+                            <p class="text-[10px] text-slate-400">낮을수록 이탈 위험이 매우 큽니다. (핵심 Feature)</p>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between font-medium mb-1 text-slateCustom">
+                                <span>지난 12개월간 비활성 월수 (Months_Inactive)</span>
+                                <span class="text-navy-900 font-bold" id="val-inactive">3</span>
+                            </div>
+                            <input type="range" min="0" max="6" value="3" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-navy-900" id="slide-inactive" oninput="calculateChurn()">
+                            <p class="text-[10px] text-slate-400">높을수록 이탈 위험이 가중됩니다.</p>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between font-medium mb-1 text-slateCustom">
+                                <span>평균 한도 소진율 (Avg_Utilization_Ratio)</span>
+                                <span class="text-navy-900 font-bold" id="val-util">0.15</span>
+                            </div>
+                            <input type="range" min="0" max="1" step="0.05" value="0.15" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-navy-900" id="slide-util" oninput="calculateChurn()">
+                            <p class="text-[10px] text-slate-400">한도를 적게 소진하는 고객일수록 플랫폼 이탈에 무감각합니다.</p>
+                        </div>
+                    </div>
+
+                    <!-- Prediction Output Area -->
+                    <div class="bg-white p-5 rounded-2xl border border-slate-200/60 text-center relative z-10">
+                        <p class="text-xs font-semibold text-slate-400 mb-1">예측 모델 종합 분석 위험도</p>
+                        <div class="text-3xl font-bold font-serif-kr text-red-500 mb-2" id="churn-result-text">고위험군 (78.5%)</div>
+                        <p class="text-xs text-slateCustom" id="churn-result-desc">
+                            거래 빈도가 극도로 부족하고 장기간 비활동 상태에 머무르고 있습니다. 참여형 콘텐츠 발송 및 한시적 리워드 복귀 쿠폰 제공 타겟에 속합니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2: Iowa Liquor Strategy Selector -->
+                <div class="bg-[#faf9f6] p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <span class="w-10 h-10 rounded-xl bg-gold-500 text-white flex items-center justify-center">
+                                <i class="fa-solid fa-chart-pie"></i>
+                            </span>
+                            <div>
+                                <h3 class="text-lg font-bold text-navy-900">아이오와 주류 도매 창업 분석기</h3>
+                                <p class="text-xs text-slateCustom">안정형(Mount Vernon) vs 공격형(Des Moines)의 데이터 비교</p>
+                            </div>
+                        </div>
+
+                        <p class="text-sm text-slateCustom leading-relaxed mb-6">
+                            저의 주류 판매 데이터(Parquet, SQL) 분석에서 도출된 핵심인 두 추천 지역의 실제 비즈니스 지표입니다. 전략을 선택하고 동적 그래프를 비교해보세요.
+                        </p>
+
+                        <!-- Strategy selector tabs -->
+                        <div class="grid grid-cols-2 gap-3 mb-6">
+                            <button onclick="selectIowaStrategy('mv')" class="py-2.5 px-4 rounded-xl text-xs font-bold transition-all text-center border bg-gold-500 text-white border-gold-600" id="btn-strat-mv">
+                                <i class="fa-solid fa-shield-halved mr-1"></i> 안정형 (MOUNT VERNON)
+                            </button>
+                            <button onclick="selectIowaStrategy('dm')" class="py-2.5 px-4 rounded-xl text-xs font-bold transition-all text-center border bg-white text-slateCustom border-slate-200 hover:border-slate-300" id="btn-strat-dm">
+                                <i class="fa-solid fa-bolt mr-1"></i> 공격형 (DES MOINES)
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic SVG Mini Chart -->
+                    <div class="bg-white p-5 rounded-2xl border border-slate-200/60">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-xs font-bold text-navy-900" id="iowa-name-label">📍 MOUNT VERNON (안정형)</span>
+                            <span class="text-xs text-slate-400">스토어당 평균 매출액</span>
+                        </div>
+                        
+                        <!-- Visual representation of value comparison -->
+                        <div class="space-y-3">
+                            <div>
+                                <div class="flex justify-between text-xs mb-1">
+                                    <span class="text-slateCustom">점포 평균 매출 ($)</span>
+                                    <span class="font-bold text-navy-900" id="iowa-sales-val">$1,382,917</span>
+                                </div>
+                                <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+                                    <div class="bg-navy-900 h-full transition-all duration-500" style="width: 100%" id="iowa-sales-bar"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between text-xs mb-1">
+                                    <span class="text-slateCustom">상위 20위권 스토어 비율</span>
+                                    <span class="font-bold text-navy-900" id="iowa-ratio-val">33.3%</span>
+                                </div>
+                                <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+                                    <div class="bg-gold-500 h-full transition-all duration-500" style="width: 100%" id="iowa-ratio-bar"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-slateCustom leading-relaxed mt-4 pt-4 border-t border-slate-100" id="iowa-desc">
+                            전체 점포 수는 단 3개뿐이지만, 상위 20위권 스토어가 33%에 달하며 단일 매장당 평균 수익이 압도적으로 높습니다. 초기 주류 종류는 1,240가지로 타협하여 소자본 고효율을 노리는 최적의 전략적 안정 요충지입니다.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Outro / Contact (가상 방명록 & 궁금한 점 공유) -->
+    <section id="outro" class="py-20 bg-slate-50 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-navy-900 text-white rounded-3xl p-8 sm:p-12 relative overflow-hidden shadow-2xl mb-12">
+                <!-- Decorative Gold circle background -->
+                <div class="absolute -right-16 -bottom-16 w-48 h-48 rounded-full bg-gold-500/20 z-0"></div>
+                
+                <div class="relative z-10 text-center sm:text-left">
+                    <span class="inline-block px-3 py-1 bg-white/10 text-gold-500 rounded-full text-xs font-bold mb-4">
+                        Let's grow together
+                    </span>
+                    <h2 class="text-3xl font-bold font-serif-kr text-white mb-6">SSAFY 1년 동안 서로의 든든한 페이스메이커가 되겠습니다</h2>
+                    <p class="text-sm sm:text-base text-slate-300 leading-relaxed mb-8 max-w-2xl">
+                        "함께 고민하고 소통하며 서로의 좋은 러닝메이트가 되어, 더 높고 견고하게 함께 성장하고 싶습니다."<br class="hidden sm:inline">
+                        언제든 자리에 찾아오시거나, 파이썬/데이터 분석 혹은 개발 공부 중에 궁금한 점이나 같이 공유하고 싶은 고민이 있다면 편하게 이야기를 나눠봐요.
+                    </p>
+
+                    <!-- Contact Details row -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+                        <div class="bg-white/5 p-4 rounded-xl border border-white/10 flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-gold-500 text-lg"></i>
+                            <div class="text-left">
+                                <p class="text-[10px] text-slate-400">이메일 주소</p>
+                                <span class="text-xs font-medium cursor-pointer" onclick="copyText('jydomi@naver.com')">jydomi@naver.com <i class="fa-solid fa-copy ml-1"></i></span>
+                            </div>
+                        </div>
+                        <div class="bg-white/5 p-4 rounded-xl border border-white/10 flex items-center gap-3">
+                            <i class="fa-solid fa-comments text-gold-500 text-lg"></i>
+                            <div class="text-left">
+                                <p class="text-[10px] text-slate-400">Mattermost (MM)</p>
+                                <span class="text-xs font-medium cursor-pointer" onclick="copyText('이종윤[대전_1반]')">이종윤[대전_1반] <i class="fa-solid fa-copy ml-1"></i></span>
+                            </div>
+                        </div>
+                        <div class="bg-white/5 p-4 rounded-xl border border-white/10 flex items-center gap-3">
+                            <i class="fa-solid fa-heart text-gold-500 text-lg"></i>
+                            <div class="text-left">
+                                <p class="text-[10px] text-slate-400">지향 도메인</p>
+                                <span class="text-xs font-semibold text-gold-500">금융 IT & 이상거래 탐지</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Virtual Sticky Note Guestbook -->
+            <div class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm">
+                <div class="text-center sm:text-left mb-8">
+                    <h3 class="text-xl font-bold font-serif-kr text-navy-900 mb-2">반 친구들의 따뜻한 한 줄 메모장</h3>
+                    <p class="text-xs text-slateCustom">저에게 응원의 메시지나 함께하고 싶은 스터디 제안, 궁금한 점을 포스트잇으로 붙여보세요!</p>
+                </div>
+
+                <!-- Input form -->
+                <form id="comment-form" onsubmit="addComment(event)" class="grid grid-cols-1 sm:grid-cols-12 gap-4 mb-8">
+                    <div class="sm:col-span-3">
+                        <input type="text" id="comment-author" placeholder="이름 (또는 반)" required class="w-full px-4 py-3 text-xs border border-slate-200 rounded-xl focus:outline-none focus:ring-1 focus:ring-gold-500">
+                    </div>
+                    <div class="sm:col-span-7">
+                        <input type="text" id="comment-text" placeholder="함께 열공해요! 궁금한 점 편하게 적어주세요." required class="w-full px-4 py-3 text-xs border border-slate-200 rounded-xl focus:outline-none focus:ring-1 focus:ring-gold-500">
+                    </div>
+                    <div class="sm:col-span-2">
+                        <button type="submit" class="w-full h-full bg-navy-900 text-white text-xs py-3 rounded-xl font-bold hover:bg-gold-500 transition-all flex items-center justify-center gap-1.5 shadow-sm">
+                            <i class="fa-solid fa-thumbtack"></i> 붙이기
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Board holding Post-it notes -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4" id="notes-board">
+                    <!-- Dynamic Notes injected by JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy-900 text-white/60 py-12 border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-xs">
+            <p class="font-serif-kr font-semibold text-white tracking-wider text-sm mb-2">JONGYOON LEE</p>
+            <p class="mb-6">본질을 채워 무한히 확장하는, 멈추지 않는 예비 개발자</p>
+            <div class="flex justify-center gap-6 mb-6">
+                <a href="mailto:jydomi@naver.com" class="hover:text-white transition-colors text-lg"><i class="fa-solid fa-envelope"></i></a>
+                <span class="hover:text-white transition-all text-lg cursor-pointer" onclick="copyText('이종윤[대전_1반]')"><i class="fa-solid fa-comments"></i></span>
+            </div>
+            <p>© 2026 이종윤. All rights reserved. Created for SSAFY peers & prospective study partners.</p>
+        </div>
+    </footer>
+
+    <!-- Brand Strategy Blueprint Modal (image_82d83b.png Content Modal) -->
+    <div id="blueprint-modal" class="fixed inset-0 z-50 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <!-- Background Overlay -->
+            <div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity" onclick="toggleModal('blueprint-modal')"></div>
+
+            <!-- Trick element to center modal -->
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+            <!-- Modal Content -->
+            <div class="relative inline-block align-middle bg-white rounded-3xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:align-middle sm:max-w-3xl sm:w-full border border-slate-100">
+                <div class="bg-navy-900 text-white px-6 py-4 flex items-center justify-between">
+                    <h3 class="text-sm font-bold font-serif-kr tracking-wider flex items-center gap-2">
+                        <i class="fa-solid fa-map-location-dot text-gold-500"></i> 이종윤 포트폴리오 브랜드 기획 설계도
+                    </h3>
+                    <button onclick="toggleModal('blueprint-modal')" class="text-white/80 hover:text-white text-lg">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                
+                <div class="p-6 overflow-x-auto">
+                    <!-- Strategy Content Table mapping the image_82d83b.png -->
+                    <table class="min-w-full divide-y divide-slate-200 text-xs">
+                        <thead>
+                            <tr class="bg-slate-50 text-slateCustom text-left font-semibold">
+                                <th class="px-4 py-3 rounded-l-lg">번호</th>
+                                <th class="px-4 py-3">항목</th>
+                                <th class="px-4 py-3 rounded-r-lg">최종 기획 내용</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 text-slateCustom">
+                            <tr>
+                                <td class="px-4 py-4 font-bold text-navy-900">1</td>
+                                <td class="px-4 py-4 font-bold text-navy-900">캐치프레이즈</td>
+                                <td class="px-4 py-4 font-serif-kr text-navy-900 font-semibold bg-gold-500/5">"본질을 채워 무한히 확장하는, 멈추지 않는 예비 개발자"</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-4 font-bold text-navy-900">2</td>
+                                <td class="px-4 py-4 font-bold text-navy-900">매력 포인트 (3개)</td>
+                                <td class="px-4 py-4 space-y-2">
+                                    <p><strong>1. 사람을 향하는 따뜻한 시선</strong> (신학/봉사활동 배경)</p>
+                                    <p><strong>2. 원리를 파고드는 집념</strong> (답답함을 성장의 동력으로 삼는 태도)</p>
+                                    <p><strong>3. 거침없는 E2E 확장</strong> (분석에서 파이프라인/배포까지 전 과정 섭렵)</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-4 font-bold text-navy-900">3</td>
+                                <td class="px-4 py-4 font-bold text-navy-900">타겟 방문자</td>
+                                <td class="px-4 py-4 font-bold text-navy-900">SSAFY 동료들 (반 친구들, 스터디원, 예비 프로젝트 팀원들)</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-4 font-bold text-navy-900">4</td>
+                                <td class="px-4 py-4 font-bold text-navy-900">스토리텔링 흐름</td>
+                                <td class="px-4 py-4">[Hero] 환영 인사 ➔ [My Story] 인생 로드맵 ➔ [My Evolution] 단계적 성장 극복기 ➔ [Outro] 러닝메이트 제안 및 연락처</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-4 font-bold text-navy-900">5</td>
+                                <td class="px-4 py-4 font-bold text-navy-900">무드/톤 (형용사 3개)</td>
+                                <td class="px-4 py-4"><strong>차분한, 신뢰감 있는, 정교한</strong> (금융IT 도메인 타겟)</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-4 font-bold text-navy-900">6</td>
+                                <td class="px-4 py-4 font-bold text-navy-900">메인 컬러 + 폰트</td>
+                                <td class="px-4 py-4 space-y-1">
+                                    <p><strong>컬러:</strong> 딥 네이비 + 슬레이트 그레이 + 소프트 골드/민트</p>
+                                    <p><strong>헤딩:</strong> Noto Serif KR (인문학적 깊이) / <strong>본문:</strong> Pretendard (현대적 가독성)</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="bg-slate-50 px-6 py-4 flex justify-end rounded-b-3xl">
+                    <button onclick="toggleModal('blueprint-modal')" class="bg-navy-900 text-white text-xs px-5 py-2 rounded-xl font-medium hover:bg-gold-500 transition-all">
+                        설계도 닫기
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Element -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 bg-navy-900 text-white px-5 py-3 rounded-2xl shadow-xl border border-white/10 text-xs hidden flex items-center gap-2">
+        <i class="fa-solid fa-circle-check text-gold-500 text-sm"></i> <span id="toast-msg">복사되었습니다!</span>
+    </div>
+
+    <!-- Custom Logic and Interactions Script -->
+    <script>
+        // Tab switching logic for My Evolution Roadmap
+        function switchTab(tabId) {
+            // Hide all step sections
+            document.querySelectorAll('.evo-content').forEach(section => {
+                section.classList.add('hidden');
+            });
+            // Show target section
+            document.getElementById(tabId).classList.remove('hidden');
+
+            // Reset tab button states
+            document.querySelectorAll('.evo-tab-btn').forEach(btn => {
+                btn.classList.remove('bg-navy-900', 'text-white');
+                btn.classList.add('bg-white', 'text-slateCustom', 'border-slate-200');
+            });
+            // Highlight current button
+            const activeBtn = document.getElementById(`btn-${tabId}`);
+            activeBtn.classList.remove('bg-white', 'text-slateCustom', 'border-slate-200');
+            activeBtn.classList.add('bg-navy-900', 'text-white');
+        }
+
+        // Modal toggle utility
+        function toggleModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal.classList.contains('hidden')) {
+                modal.classList.remove('hidden');
+            } else {
+                modal.classList.add('hidden');
+            }
+        }
+
+        // Churn Predictor simulation calculation
+        function calculateChurn() {
+            const transCt = parseFloat(document.getElementById('slide-trans-ct').value);
+            const inactive = parseFloat(document.getElementById('slide-inactive').value);
+            const utilization = parseFloat(document.getElementById('slide-util').value);
+
+            // Set current values label text
+            document.getElementById('val-trans-ct').innerText = transCt;
+            document.getElementById('val-inactive').innerText = inactive;
+            document.getElementById('val-util').innerText = utilization.toFixed(2);
+
+            // Simplified linear mock equation matching Lee's Optuna/CatBoost weight importance
+            // Basic factors: low trans count increases churn, high inactive increases churn, low util increases churn
+            let riskBase = 50;
+            
+            // Transaction count penalty (Total_Trans_Ct is crucial)
+            if (transCt < 40) riskBase += 35;
+            else if (transCt < 70) riskBase += 15;
+            else if (transCt > 100) riskBase -= 25;
+
+            // Inactive penalty
+            riskBase += (inactive * 8) - 12;
+
+            // Utilization penalty
+            riskBase += (0.5 - utilization) * 20;
+
+            // Constrain between 1% and 99%
+            const finalRisk = Math.max(1.2, Math.min(98.8, riskBase)).toFixed(1);
+
+            // Update UI elements based on prediction calculation
+            const resultText = document.getElementById('churn-result-text');
+            const resultDesc = document.getElementById('churn-result-desc');
+
+            if (finalRisk > 70) {
+                resultText.className = "text-3xl font-bold font-serif-kr text-red-500 mb-2";
+                resultText.innerText = `고위험군 (${finalRisk}%)`;
+                resultDesc.innerText = "거래 횟수 지표 및 고객 참여 유도가 시급합니다. 가중치를 두고 분석한 결과, 이 상태가 지속된다면 이탈 확률이 90%에 육박하는 초고위험 단계에 진입할 것입니다.";
+            } else if (finalRisk > 40) {
+                resultText.className = "text-3xl font-bold font-serif-kr text-amber-500 mb-2";
+                resultText.innerText = `주의 관찰군 (${finalRisk}%)`;
+                resultDesc.innerText = "이탈률 40~70%대 점진적 하락세입니다. 아직 위험 단계는 아니나, 지속적인 모니터링 및 복귀 대상 쿠폰 등 실물 리워드를 지급하는 활동 점수 제고 타겟입니다.";
+            } else {
+                resultText.className = "text-3xl font-bold font-serif-kr text-emerald-500 mb-2";
+                resultText.innerText = `안정 유지군 (${finalRisk}%)`;
+                resultDesc.innerText = "활성도가 극도로 건강합니다. 정규 결제 수단을 안정적으로 활용 중이며, 추가 카드 혜택 설명회 등의 프리미엄 혜택 업그레이드 마케팅이 적절합니다.";
+            }
+        }
+
+        // Iowa Liquor business strategy selection
+        function selectIowaStrategy(type) {
+            const btnMv = document.getElementById('btn-strat-mv');
+            const btnDm = document.getElementById('btn-strat-dm');
+            const nameLabel = document.getElementById('iowa-name-label');
+            const salesVal = document.getElementById('iowa-sales-val');
+            const ratioVal = document.getElementById('iowa-ratio-val');
+            const salesBar = document.getElementById('iowa-sales-bar');
+            const ratioBar = document.getElementById('iowa-ratio-bar');
+            const iowaDesc = document.getElementById('iowa-desc');
+
+            if (type === 'mv') {
+                btnMv.className = "py-2.5 px-4 rounded-xl text-xs font-bold transition-all text-center border bg-gold-500 text-white border-gold-600";
+                btnDm.className = "py-2.5 px-4 rounded-xl text-xs font-bold transition-all text-center border bg-white text-slateCustom border-slate-200 hover:border-slate-300";
+                
+                nameLabel.innerText = "📍 MOUNT VERNON (안정형)";
+                salesVal.innerText = "$1,382,917";
+                ratioVal.innerText = "33.33%";
+                salesBar.style.width = "100%"; // Absolute base representation
+                ratioBar.style.width = "100%";
+                iowaDesc.innerText = "전체 점포 수는 단 3개뿐이지만, 상위 20위권 스토어가 33%에 달하며 단일 매장당 평균 수익이 압도적으로 높습니다. 초기 주류 종류는 1,240가지로 타협하여 소자본 고효율을 노리는 최적의 전략적 안정 요충지입니다.";
+            } else {
+                btnDm.className = "py-2.5 px-4 rounded-xl text-xs font-bold transition-all text-center border bg-gold-500 text-white border-gold-600";
+                btnMv.className = "py-2.5 px-4 rounded-xl text-xs font-bold transition-all text-center border bg-white text-slateCustom border-slate-200 hover:border-slate-300";
+                
+                nameLabel.innerText = "📍 DES MOINES (공격형)";
+                salesVal.innerText = "$569,162";
+                ratioVal.innerText = "13.04%";
+                salesBar.style.width = "41.1%"; // Proportional mapping compared to MV
+                ratioBar.style.width = "39.1%";
+                iowaDesc.innerText = "총 점포 수는 92개로 주 전체 최고 총액을 차지하지만 점포당 평균 매출 비율은 적은 편입니다. 또한, 주류 가짓수도 3,606개로 폭넓게 다뤄야 하므로 공격적으로 1등 매장을 경쟁하고 장악해나가고자 하는 플랫폼 전술에 어울립니다.";
+            }
+        }
+
+        // Simple Toast indicator helper
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-msg');
+            toastMsg.innerText = message;
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 3000);
+        }
+
+        // Clipboard Copy fallback wrapper (as requested in specifications)
+        function copyText(text) {
+            const dummy = document.createElement("textarea");
+            document.body.appendChild(dummy);
+            dummy.value = text;
+            dummy.select();
+            document.execCommand("copy");
+            document.body.removeChild(dummy);
+            showToast(`"${text}"가 클립보드에 복사되었습니다.`);
+        }
+
+        // Virtual Sticky Note Guestbook dynamic state storage
+        let comments = [
+            { id: 1, author: "김민재 (수요일 스터디)", text: "저번 팀 프로젝트 때 파이프라인 수립 막막했는데 설명 듣고 바로 감잡았습니다! 든든하네요..", color: "#FEF08A" }, // Yellow note
+            { id: 2, author: "이지혜 (SSAFY 2반)", text: "신학에서 데이터까지 오신 서사가 진짜 감동적이네요. 다음 관통 프로젝트 때 같이해요!", color: "#BFDBFE" }, // Blue note
+            { id: 3, author: "정우진", text: "알고리즘 스터디 언제 열어주시나요? 페이스메이커로 같이 공부해요 화이팅!", color: "#BBF7D0" }  // Green note
+        ];
+
+        // Load local storage comments if present
+        if (localStorage.getItem('jongyun_guestbook')) {
+            comments = JSON.parse(localStorage.getItem('jongyun_guestbook'));
+        }
+
+        const noteColors = ["#FEF08A", "#BFDBFE", "#BBF7D0", "#FBCFE8", "#FED7AA"];
+
+        function renderNotes() {
+            const board = document.getElementById('notes-board');
+            board.innerHTML = '';
+            
+            comments.forEach(note => {
+                const card = document.createElement('div');
+                // Card designs representing physical sticky post-it
+                card.className = "p-5 rounded-2xl relative shadow-md transition-all hover:rotate-1 hover:scale-105 duration-200 text-slate-800 flex flex-col justify-between aspect-square select-none";
+                card.style.backgroundColor = note.color || "#FEF08A";
+                
+                card.innerHTML = `
+                    <div>
+                        <div class="absolute top-2 right-2 opacity-30 text-xs"><i class="fa-solid fa-thumbtack"></i></div>
+                        <p class="text-xs font-semibold leading-relaxed font-serif-kr">"${note.text}"</p>
+                    </div>
+                    <div class="border-t border-black/5 pt-2 mt-4 flex justify-between items-center">
+                        <span class="text-[10px] font-bold text-slate-600 block">${note.author}</span>
+                        <button onclick="deleteComment(${note.id})" class="text-[10px] text-red-600/50 hover:text-red-700 transition-colors"><i class="fa-regular fa-trash-can"></i></button>
+                    </div>
+                `;
+                board.appendChild(card);
+            });
+        }
+
+        function addComment(e) {
+            e.preventDefault();
+            const authorInput = document.getElementById('comment-author');
+            const textInput = document.getElementById('comment-text');
+
+            const randomColor = noteColors[Math.floor(Math.random() * noteColors.length)];
+            const newComment = {
+                id: Date.now(),
+                author: authorInput.value,
+                text: textInput.value,
+                color: randomColor
+            };
+
+            comments.push(newComment);
+            localStorage.setItem('jongyun_guestbook', JSON.stringify(comments));
+            renderNotes();
+
+            // Reset inputs
+            authorInput.value = '';
+            textInput.value = '';
+            showToast("메모가 칠판에 성공적으로 붙여졌습니다!");
+        }
+
+        function deleteComment(id) {
+            comments = comments.filter(c => c.id !== id);
+            localStorage.setItem('jongyun_guestbook', JSON.stringify(comments));
+            renderNotes();
+            showToast("메모가 삭제되었습니다.");
+        }
+
+        // Initialize state on page load
+        window.onload = function() {
+            renderNotes();
+            calculateChurn();
+        };
+    </script>
+</body>
+</html>
